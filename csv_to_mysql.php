@@ -56,7 +56,7 @@ if($drop_table_if_exists) {
 $sql .= 'CREATE TABLE `'.$new_table_name . '` (';
 
 for($i=0;$i<count($columns); $i++) {
-	$sql .= '`' .$columns[$i].'`'. ' VARCHAR('.$column_widths[$i].'), ';
+	$sql .= '`' .$columns[$i].'`'. ' VARCHAR('.$column_widths[$i] + $field_length_padding .'), ';
 }
 
 $sql = substr($sql,0,strlen($sql)-2);
