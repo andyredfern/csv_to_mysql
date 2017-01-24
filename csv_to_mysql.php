@@ -66,8 +66,6 @@ $sql .= ')';
 //open db
 $mysqli = new mysqli($database_location, $database_user, $database_password, $database_name);
 
-echo $sql;
-
 $mysqli->query($sql);
 
 rewind($handle);
@@ -81,9 +79,8 @@ foreach($data as $column) {
 	$sql_intro .= '`' . $column . '`,';
 }
 $sql_intro = substr($sql_intro,0,strlen($sql_intro)-1);
-
 $sql_intro .= ") VALUES (";
-$row=0;
+
 if($load_data) {
 	while(($data=fgetcsv($handle, 10000, ","))!==false) {
 		$sql= $sql_intro;
@@ -92,11 +89,10 @@ if($load_data) {
 		}
 		$sql = substr($sql,0,strlen($sql)-2);
 		$sql .= ')';
-		echo $sql ."<br><br>";
 		$mysqli->query($sql);
-		if($row++>10) break;
 	}
 }
 
+$mysqli->close();
 fclose($handle);
 ?>
