@@ -9,12 +9,12 @@ error_reporting(E_ALL);
 
 //constants
 $field_length_padding 	= 10;
-$import_filename 		= 'rap_products.csv';
-$new_table_name			= 'rap_products';
+$import_filename 		= 'example_file.csv';
+$new_table_name			= 'example_table';
 $database_location		= 'localhost';
-$database_user			= 'root';
-$database_password		= '';
-$database_name 			= 'florists';
+$database_user			= 'mysql_user';
+$database_password		= 'mysql_password';
+$database_name 			= 'example_database';
 $drop_table_if_exists	= true;
 $check_max_lenghths 	= true;
 $load_data 				= true;
